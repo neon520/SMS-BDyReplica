@@ -8,7 +8,7 @@ Además, dada la índole del proyecto, tenemos intención de presentarlo al Cert
 
 ## Estructura del proyecto SMS
 
-Será un proyecto que se divide en ++3 partes++:
+Será un proyecto que se divide en **3 partes**:
 - **La aplicación**: 
 De esta se encargará @juanAFernandez, que la presentará en su TFG
 - **Las máquinas virtuales y el balanceador**:
