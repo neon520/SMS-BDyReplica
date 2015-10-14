@@ -20,4 +20,4 @@ De esta parte (que será otro subproyecto) me encargo yo, @neon520.
 
 En mi subproyecto me encargaré de desarrollar el sistema de base de datos y de generar una réplica de la misma para evitar problemas de pérdida de datos.
 
-Estas bases de datos estarán desarrolladas en **Mongo DB** y serán desplegadas en diferentes nubes. En concreto, la base de datos principal será desplegada en **Azure**, mientras que la réplica será desplegada en **Bluemix**.
+Estas bases de datos estarán desarrolladas en **Mongo DB** y serán desplegadas en diferentes nubes. En concreto, la base de datos principal será desplegada en **Azure**, mientras que la réplica será desplegada en **Bluemix**. Para los despliegues utilizaré **Ansible**.
