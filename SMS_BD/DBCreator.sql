@@ -49,21 +49,21 @@ CREATE TABLE Grupo(
 CREATE TABLE Pertenece(
   curso_p CHAR(2),
   letra_p char(1),
-  idAsignatura CHAR(9),
+  idAsignatura_p CHAR(9),
   PRIMARY KEY(curso_p,letra_p,idAsignatura),
   FOREIGN KEY (curso_p) REFERENCES Grupo(curso),
   FOREIGN KEY (letra_p) REFERENCES Grupo(letra),
-  FOREIGN KEY (idAsignatura) REFERENCES Asignatura(id)
+  FOREIGN KEY (idAsignatura_p) REFERENCES Asignatura(id)
 );
 
 CREATE TABLE Imparte(
   curso_i CHAR(2),
   letra_i char(1),
-  idAsignatura CHAR(20),
+  idAsignatura_i CHAR(20),
   dniProfesor CHAR(9),
   PRIMARY KEY(curso,letra,idAsignatura,dniProfesor),
   FOREIGN KEY (dniProfesor) REFERENCES Profesor(dni),
-  FOREIGN KEY (idAsignatura) REFERENCES Pertenece(idAsignatura),
+  FOREIGN KEY (idAsignatura_i) REFERENCES Pertenece(idAsignatura_p),
   FOREIGN KEY (curso_i) REFERENCES Pertenece(curso_p),
   FOREIGN KEY (letra_i) REFERENCES Pertenece(letra_p)
 );
@@ -71,11 +71,11 @@ CREATE TABLE Imparte(
 CREATE TABLE Cursa(
   curso_c CHAR(2),
   letra_c char(1),
-  idAsignatura CHAR(20),
+  idAsignatura_c CHAR(20),
   dniAlumno CHAR(9),
   PRIMARY KEY(curso,letra,idAsignatura,dniAlumno),
   FOREIGN KEY (dniAlumno) REFERENCES Alumno(dni),
-  FOREIGN KEY (idAsignatura) REFERENCES Pertenece(idAsignatura),
+  FOREIGN KEY (idAsignatura_c) REFERENCES Pertenece(idAsignatura_p),
   FOREIGN KEY (curso_c) REFERENCES Pertenece(curso_p),
   FOREIGN KEY (letra_c) REFERENCES Pertenece(letra_p)
 );
