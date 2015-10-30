@@ -265,7 +265,7 @@ class WebGrupo(webapp2.RequestHandler):
     '''
 
     def get(self):
-        template=template_env.get_template('templates/registroAsignatura.html')
+        template=template_env.get_template('templates/registroGrupo.html')
         template_values = {'STATIC_DIR': STATIC_DIR }
         self.response.write(template.render(template_values))
 
