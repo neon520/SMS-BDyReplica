@@ -6,7 +6,7 @@
 
 **/
 
-DROP DATABASE mdb;
+#DROP DATABASE mdb;
 
 #Creamos la base de datos.
 CREATE DATABASE mdb;
