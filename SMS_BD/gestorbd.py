@@ -314,8 +314,8 @@ class GestorPertenece:
     @classmethod
     def nuevaPertenencia(self, curso, letra, idAsignatura):
         db = MySQLdb.connect(host="localhost", user="root", db="mdb")
-        gs=GestorUsuario()
-        sel_c= "SELECT count(*) from Pertenece where curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"';"
+
+        sel_c= "SELECT count(*) from Pertenece where curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura_p='"+str(idAsignatura)+"';"
         sel_e= "SELECT count(*) from Asignatura where (id ="+"'"+str(idAsignatura)+"');"
         query="INSERT INTO Pertenece values("+"'"+str(curso)+"', '"+str(letra)+"', '"+str(idAsignatura)+"');"
 
@@ -338,8 +338,8 @@ class GestorPertenece:
     def borrarPertenencia(self, curso, letra, dni):
         db = MySQLdb.connect(host="localhost", user="root", db="mdb")
 
-        sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"';"
-        query="DELETE FROM Cursa where where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"';"
+        sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"';"
+        query="DELETE FROM Cursa where where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"';"
 
         cursor = db.cursor()
 
@@ -387,8 +387,8 @@ class GestorImparte:
     def nuevaImparticion(self, curso, letra, idAsignatura, dniProfesor):
         db = MySQLdb.connect(host="localhost", user="root", db="mdb")
         gs=GestorUsuario()
-        sel_c= "SELECT count(*) from Imparte where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
-        sel_e= "SELECT count(*) from Pertenece where (curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura ="+"'"+str(idAsignatura)+"');"
+        sel_c= "SELECT count(*) from Imparte where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura_i='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
+        sel_e= "SELECT count(*) from Pertenece where (curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura_p ="+"'"+str(idAsignatura)+"');"
         sel_g= "SELECT count(*) from Profesor where (dni="+"'"+str(dniProfesor)+"');"
         query="INSERT INTO Imparte values("+"'"+str(curso)+"', '"+str(letra)+"', '"+str(idAsignatura)+"', '"+str(dniProfesor)+"');"
 
@@ -412,8 +412,8 @@ class GestorImparte:
     def borrarImparticion(self, curso, letra, idAsignatura, dniProfesor):
         db = MySQLdb.connect(host="localhost", user="root", db="mdb")
 
-        sel_c= "SELECT count(*) from Imparte where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
-        query="DELETE FROM Imparte where where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
+        sel_c= "SELECT count(*) from Imparte where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura_i='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
+        query="DELETE FROM Imparte where where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura_i='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
 
         cursor = db.cursor()
 
@@ -463,8 +463,8 @@ class GestorCursa:
     def nuevoCurso(self, curso, letra, idAsignatura, dniAlumno):
         db = MySQLdb.connect(host="localhost", user="root", db="mdb")
         gs=GestorUsuario()
-        sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
-        sel_e= "SELECT count(*) from Pertenece where (curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura ="+"'"+str(idAsignatura)+"');"
+        sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
+        sel_e= "SELECT count(*) from Pertenece where (curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura_p ="+"'"+str(idAsignatura)+"');"
         sel_g= "SELECT count(*) from Alumno where (dni="+"'"+str(dniAlumno)+"');"
         query="INSERT INTO Cursa values("+"'"+str(curso)+"', '"+str(letra)+"', '"+str(idAsignatura)+"', '"+str(dniAlumno)+"');"
 
@@ -488,8 +488,8 @@ class GestorCursa:
     def borrarCurso(self, curso, letra, idAsignatura, dniAlumno):
         db = MySQLdb.connect(host="localhost", user="root", db="mdb")
 
-        sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
-        query="DELETE FROM Cursa where where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
+        sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
+        query="DELETE FROM Cursa where where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
 
         cursor = db.cursor()
 
