@@ -6,12 +6,13 @@
 
 **/
 
-#DROP DATABASE smm;
+DROP DATABASE mdb;
 
 #Creamos la base de datos.
 CREATE DATABASE mdb;
 
 USE mdb;
+
 
 #Creación de la tabla Alumno
 CREATE TABLE Alumno(
@@ -50,10 +51,9 @@ CREATE TABLE Pertenece(
   curso_p CHAR(2),
   letra_p char(1),
   idAsignatura_p CHAR(9),
-  PRIMARY KEY(curso_p,letra_p,idAsignatura_p),
-  FOREIGN KEY (curso_p) REFERENCES Grupo(curso),
-  FOREIGN KEY (letra_p) REFERENCES Grupo(letra),
-  FOREIGN KEY (idAsignatura_p) REFERENCES Asignatura(id)
+  PRIMARY KEY (curso_p,letra_p,idAsignatura_p),
+  FOREIGN KEY (curso_p, letra_p) REFERENCES Grupo (curso, letra),
+  FOREIGN KEY (idAsignatura_p) REFERENCES Asignatura (id)
 );
 
 CREATE TABLE Imparte(
@@ -61,11 +61,9 @@ CREATE TABLE Imparte(
   letra_i char(1),
   idAsignatura_i CHAR(20),
   dniProfesor CHAR(9),
-  PRIMARY KEY(curso,letra,idAsignatura_i,dniProfesor),
+  PRIMARY KEY(curso_i,letra_i,idAsignatura_i,dniProfesor),
   FOREIGN KEY (dniProfesor) REFERENCES Profesor(dni),
-  FOREIGN KEY (idAsignatura_i) REFERENCES Pertenece(idAsignatura_p),
-  FOREIGN KEY (curso_i) REFERENCES Pertenece(curso_p),
-  FOREIGN KEY (letra_i) REFERENCES Pertenece(letra_p)
+  FOREIGN KEY (curso_i,letra_i,idAsignatura_i) REFERENCES Pertenece (curso_p, letra_p, idAsignatura_p)
 );
 
 CREATE TABLE Cursa(
@@ -73,11 +71,9 @@ CREATE TABLE Cursa(
   letra_c char(1),
   idAsignatura_c CHAR(20),
   dniAlumno CHAR(9),
-  PRIMARY KEY(curso,letra,idAsignatura_c,dniAlumno),
-  FOREIGN KEY (dniAlumno) REFERENCES Alumno(dni),
-  FOREIGN KEY (idAsignatura_c) REFERENCES Pertenece(idAsignatura_p),
-  FOREIGN KEY (curso_c) REFERENCES Pertenece(curso_p),
-  FOREIGN KEY (letra_c) REFERENCES Pertenece(letra_p)
+  PRIMARY KEY(curso_c,letra_c,idAsignatura_c,dniAlumno),
+  FOREIGN KEY (dniAlumno) REFERENCES Alumno (dni),
+  FOREIGN KEY (curso_c, letra_c, idAsignatura_c) REFERENCES Pertenece (curso_p, letra_p, idAsignatura_p)
 );
 
 /**
