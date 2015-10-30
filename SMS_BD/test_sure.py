@@ -9,7 +9,7 @@ class TestStringMethods:
 		response = request.get_response(gestorhtml.Server())
 		#self.assertTrue('Alumnos registrados' in response.body)
 		(response.body).should.contain('Alumnos registrados')
-		
+
 	def test_asignaturas(self):
 		request = webapp2.Request.blank('/asignaturas')
 		response = request.get_response(gestorhtml.Server())
@@ -80,7 +80,7 @@ class TestStringMethods:
 		request = webapp2.Request.blank('/registroPertenece')
 		response = request.get_response(gestorhtml.Server())
 		#self.assertTrue('Registro de pertenece' in response.body)
-		(response.body).should.contain('Registro de pertenece')
+		(response.body).should.contain('Registro de pertenencia')
 
 	def test_registroProfesor(self):
 		request = webapp2.Request.blank('/registroProfesor')

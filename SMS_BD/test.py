@@ -71,7 +71,7 @@ class TestStringMethods(unittest.TestCase):
         def test_registroPertenece(self):
             request = webapp2.Request.blank('/registroPertenece')
             response = request.get_response(gestorhtml.Server())
-            self.assertTrue('Registro de pertenece' in response.body)
+            self.assertTrue('Registro de pertenencia' in response.body)
 
         def test_registroProfesor(self):
             request = webapp2.Request.blank('/registroProfesor')
