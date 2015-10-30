@@ -50,6 +50,7 @@ CREATE TABLE Pertenece(
   curso CHAR(2),
   letra char(1),
   idAsignatura CHAR(9),
+  PRIMARY KEY(curso,letra,idAsignatura),
   FOREIGN KEY (curso) REFERENCES Grupo(curso),
   FOREIGN KEY (letra) REFERENCES Grupo(letra),
   FOREIGN KEY (idAsignatura) REFERENCES Asignatura(id)
@@ -60,6 +61,7 @@ CREATE TABLE Imparte(
   letra char(1),
   idAsignatura CHAR(20),
   dniProfesor CHAR(9),
+  PRIMARY KEY(curso,letra,idAsignatura,dniProfesor),
   FOREIGN KEY (dniProfesor) REFERENCES Profesor(dni),
   FOREIGN KEY (idAsignatura) REFERENCES Pertenece(idAsignatura),
   FOREIGN KEY (curso) REFERENCES Pertenece(curso),
@@ -71,6 +73,7 @@ CREATE TABLE Cursa(
   letra char(1),
   idAsignatura CHAR(20),
   dniAlumno CHAR(9),
+  PRIMARY KEY(curso,letra,idAsignatura,dniAlumno),
   FOREIGN KEY (dniAlumno) REFERENCES Alumno(dni),
   FOREIGN KEY (idAsignatura) REFERENCES Pertenece(idAsignatura),
   FOREIGN KEY (curso) REFERENCES Pertenece(curso),
