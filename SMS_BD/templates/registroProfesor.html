@@ -1,0 +1,44 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+
+    <!--Script de validación del formulario-->
+    <script type="text/javascript">
+
+
+    function valida(f){
+      valor = document.formularioRegistro.nombre.value;
+
+      if(valor.length != 0){
+        alert(valor);
+      }else{
+        document.getElementById("nombre2").innerHTML='<input id="nombre" name="nombre" type="text" placeholder="Debes introducir tu nombre">'
+      }
+    }
+
+    </script>
+
+     <br>
+
+      <form name="formularioRegistro" action="/registroProfesor" method="post" class="uk-form">
+
+      <fieldset data-uk-margin>
+
+          <legend>Registro de Profesor</legend>
+
+
+          <input id="nombre" name="nombre" type="text" placeholder="Nombre">
+          <input name="dni" type="text" placeholder="DNI">
+          <input name="apellidos" type="text" placeholder="Apellidos">
+          <input name="municipio" type="text" placeholder="Municipio">
+          <input name="provincia" type="text" placeholder="Provincia">
+          <input name="domicilio" type="text" placeholder="Domicilio">
+          <input name="email" type="text" placeholder="Email">
+          <input name="telefono" type="text" placeholder="Tfo">
+          <br>
+          <button type="submit" class="uk-button-primary" onclick="valida(this)" >Registrar</button
+
+      </fieldset>
+
+
+{% endblock %}

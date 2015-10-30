@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+
+
+                     <div class="uk-h1">
+                       Cursos registrados
+                     </div>
+
+
+                     <ul class="uk-list uk-list-striped">
+                       {% for curso in cursos %}
+                         <li>{{ curso.curso }} {{ curso.letra }} {{ curso.idAsignatura }} {{ curso.dniAlumno }}</li>
+                       {% endfor %}
+                    </ul>
+
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+
+
+                     <div class="uk-h1">
+                       Pertenencias registradas
+                     </div>
+
+
+                     <ul class="uk-list uk-list-striped">
+                       {% for pertenencia in pertenencias %}
+                         <li>{{ pertenencia.curso }} {{ pertenencia.letra }} {{ pertenencia.idAsignatura }}</li>
+                       {% endfor %}
+                    </ul>
+
+{% endblock %}
+
