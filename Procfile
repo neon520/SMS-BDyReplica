@@ -1,1 +1,1 @@
-web: python ./SMS_BD/__main__.py
+web: gunicorn ./SMS_BD/__main__:app
