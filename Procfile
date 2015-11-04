@@ -1,1 +1,1 @@
-web: gunicorn ./SMS_BD/__main__:app
+web: gunicorn SMS_BD/__main__:app
