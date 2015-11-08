@@ -1,4 +1,3 @@
-#! /usr/bin/python
 
 from gestorhtml import *
 

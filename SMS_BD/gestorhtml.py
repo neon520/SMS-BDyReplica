@@ -9,6 +9,7 @@ import webapp2
 import cgi
 
 from gestorbd import *
+from paste import httpserver
 
 
 
@@ -426,7 +427,7 @@ class MainPage(webapp2.RequestHandler):
 
 
 def Server() :
-	return webapp2.WSGIApplication([('/', MainPage),
+    app=webapp2.WSGIApplication([('/', MainPage),
                                       ('/registroAlumno', WebAlumno),
                                       ('/registroAsignatura', WebAsignatura),
                                       ('/registroProfesor', WebProfesor),
@@ -442,3 +443,4 @@ def Server() :
                                       ('/imparticiones', Imparte),
                                       ('/cursos', Cursa),
                                       (r'/tostatic/(.+)', StaticView)],debug=True)
+    return httpserver.serve(app, host='127.0.0.1', port='8000')
