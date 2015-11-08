@@ -1,0 +1,1 @@
+web: cd SMS_BD && gunicorn gestorhtml:Server
