@@ -1,1 +1,1 @@
-web: cd SMS_BD && gunicorn gestorhtml:Server
+web: cd SMS_BD && python index.py
