@@ -1,1 +1,0 @@
-web: pỳthon SMS_BD/__main__.py
