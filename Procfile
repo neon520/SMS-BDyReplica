@@ -1,1 +1,1 @@
-web: cd SMS_BD && python index.py
+web: cd SMS_BD && gunicorn index:app
