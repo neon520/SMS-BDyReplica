@@ -3,11 +3,7 @@ from gestorhtml import *
 
 
 
-
-
-def main():
-
-    app = Server()
+app=Server()
 
 if __name__ == '__main__':
-    main()
+    app.run()
