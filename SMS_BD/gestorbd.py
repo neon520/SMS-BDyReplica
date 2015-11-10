@@ -115,7 +115,7 @@ class GestorAlumno:
         while row is not None:
             alumno.dni=row[0]
             alumno.nombre=row[1]
-            lista.append(Alumno)
+            lista.append(alumno)
             #print row[0], row[1]
             row = cursor.fetchone()
 
@@ -225,18 +225,18 @@ class GestorProfesor:
         row = cursor.fetchone()
 
         lista = []
+        profesor = Profesor()
 
         while row is not None:
-            Profesor = Profesor()
-            Profesor.dni=row[0]
-            Profesor.nombre=row[2]
-            Profesor.apellidos=row[3]
-            Profesor.municipio=row[4]
-            Profesor.provincia=row[5]
-            Profesor.domicilio=row[6]
-            Profesor.email=row[7]
-            Profesor.telefono=row[8]
-            lista.append(Profesor)
+            profesor.dni=row[0]
+            profesor.nombre=row[2]
+            profesor.apellidos=row[3]
+            profesor.municipio=row[4]
+            profesor.provincia=row[5]
+            profesor.domicilio=row[6]
+            profesor.email=row[7]
+            profesor.telefono=row[8]
+            lista.append(profesor)
             #print row[0], row[1]
             row = cursor.fetchone()
 
