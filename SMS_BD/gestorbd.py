@@ -164,11 +164,12 @@ class GestorAsignatura:
 
         lista = []
 
+        asignatura = Asignatura()
+
         while row is not None:
-            Asignatura = Asignatura()
-            Asignatura.id=row[0]
-            Asignatura.nombre=row[1]
-            lista.append(Asignatura)
+            asignatura.id=row[0]
+            asignatura.nombre=row[1]
+            lista.append(asignatura)
             #print row[0], row[1]
             row = cursor.fetchone()
 
