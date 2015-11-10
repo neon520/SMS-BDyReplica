@@ -229,13 +229,13 @@ class GestorProfesor:
 
         while row is not None:
             profesor.dni=row[0]
-            profesor.nombre=row[2]
-            profesor.apellidos=row[3]
-            profesor.municipio=row[4]
-            profesor.provincia=row[5]
-            profesor.domicilio=row[6]
-            profesor.email=row[7]
-            profesor.telefono=row[8]
+            profesor.nombre=row[1]
+            profesor.apellidos=row[2]
+            profesor.municipio=row[3]
+            profesor.provincia=row[4]
+            profesor.domicilio=row[5]
+            profesor.email=row[6]
+            profesor.telefono=row[7]
             lista.append(profesor)
             #print row[0], row[1]
             row = cursor.fetchone()
