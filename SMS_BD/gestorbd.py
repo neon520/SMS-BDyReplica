@@ -171,7 +171,6 @@ class GestorAsignatura:
         asignatura = Asignatura()
 
         while row is not None:
-            print("las variables son:"+str(row[0])+str(row[1]))
             asignatura.id=row[0]
             asignatura.nombre=row[1]
             lista.append(asignatura)
