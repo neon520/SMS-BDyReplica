@@ -110,12 +110,11 @@ class GestorAlumno:
         row = cursor.fetchone()
 
         lista = []
+        alumno = Alumno()
 
         while row is not None:
-            Alumno = Alumno()
-            Alumno.dni=row[0]
-            print("las variables son:"+str(row[0])+str(row[1]))
-            Alumno.nombre=row[1]
+            alumno.dni=row[0]
+            alumno.nombre=row[1]
             lista.append(Alumno)
             #print row[0], row[1]
             row = cursor.fetchone()
@@ -172,6 +171,7 @@ class GestorAsignatura:
         asignatura = Asignatura()
 
         while row is not None:
+            print("las variables son:"+str(row[0])+str(row[1]))
             asignatura.id=row[0]
             asignatura.nombre=row[1]
             lista.append(asignatura)
@@ -289,11 +289,11 @@ class GestorGrupo:
         row = cursor.fetchone()
 
         lista = []
+        grupo = Grupo()
 
         while row is not None:
-            Grupo = Grupo()
-            Grupo.curso=row[0]
-            Grupo.letra=row[1]
+            grupo.curso=row[0]
+            grupo.letra=row[1]
             lista.append(Grupo)
             #print row[0], row[1]
             row = cursor.fetchone()
@@ -372,9 +372,9 @@ class GestorPertenece:
         row = cursor.fetchone()
 
         lista = []
+        pertenece = Pertenece()
 
         while row is not None:
-            pertenece = Pertenece()
             pertenece.curso_p=row[0]
             pertenece.letra_p=row[1]
             pertenece.idAsignatura=row[2]
@@ -446,9 +446,9 @@ class GestorImparte:
         row = cursor.fetchone()
 
         lista = []
+        imparte = Imparte()
 
         while row is not None:
-            imparte = Imparte()
             imparte.curso_i=row[0]
             imparte.letra_i=row[1]
             imparte.idAsignatura=row[2]
@@ -522,9 +522,9 @@ class GestorCursa:
         row = cursor.fetchone()
 
         lista = []
+        cursa = Cursa()
 
         while row is not None:
-            cursa = Cursa()
             cursa.curso_c=row[0]
             cursa.letra_c=row[1]
             cursa.idAsignatura=row[2]
