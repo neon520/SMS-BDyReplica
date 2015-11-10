@@ -2,8 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import MySQLdb
+"""
+import sys  
 
-
+reload(sys)  
+sys.setdefaultencoding('utf8')
+"""
 class Alumno:
 
     def __init__(self):
@@ -110,6 +114,7 @@ class GestorAlumno:
         while row is not None:
             Alumno = Alumno()
             Alumno.dni=row[0]
+            print("las variables son:"+str(row[0])+str(row[1]))
             Alumno.nombre=row[1]
             lista.append(Alumno)
             #print row[0], row[1]
@@ -164,12 +169,12 @@ class GestorAsignatura:
 
         lista = []
 
-        Asignatura = Asignatura()
+        asignatura = Asignatura()
 
         while row is not None:
-            Asignatura.id=row[0]
-            Asignatura.nombre=row[1]
-            lista.append(Asignatura)
+            asignatura.id=row[0]
+            asignatura.nombre=row[1]
+            lista.append(asignatura)
             #print row[0], row[1]
             row = cursor.fetchone()
 
