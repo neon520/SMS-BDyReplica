@@ -110,9 +110,9 @@ class GestorAlumno:
         row = cursor.fetchone()
 
         lista = []
-        alumno = Alumno()
 
         while row is not None:
+            alumno = Alumno()
             alumno.dni=row[0]
             alumno.nombre=row[1]
             lista.append(alumno)
@@ -168,15 +168,21 @@ class GestorAsignatura:
 
         lista = []
 
-        asignatura = Asignatura()
-
+        
         while row is not None:
+            asignatura = Asignatura()
             asignatura.id=row[0]
-            asignatura.nombre=row[1]#str(row[1]).decode('ISO-8859-1')
+            asignatura.nombre=row[1]        #str(row[1]).decode('ISO-8859-1')
             lista.append(asignatura)
             #print row[0], row[1]
             row = cursor.fetchone()
-
+        """
+        for row in cursor:
+            asignatura = Asignatura()
+            asignatura.id=row[0]
+            asignatura.nombre=row[1]        #str(row[1]).decode('ISO-8859-1')
+            lista.append(asignatura)
+        """
         cursor.close()
         db.close()
 
@@ -225,9 +231,9 @@ class GestorProfesor:
         row = cursor.fetchone()
 
         lista = []
-        profesor = Profesor()
 
         while row is not None:
+            profesor = Profesor()
             profesor.dni=row[0]
             profesor.nombre=row[1]
             profesor.apellidos=row[2]
@@ -371,9 +377,9 @@ class GestorPertenece:
         row = cursor.fetchone()
 
         lista = []
-        pertenece = Pertenece()
 
         while row is not None:
+            pertenece = Pertenece()
             pertenece.curso_p=row[0]
             pertenece.letra_p=row[1]
             pertenece.idAsignatura=row[2]
@@ -445,9 +451,9 @@ class GestorImparte:
         row = cursor.fetchone()
 
         lista = []
-        imparte = Imparte()
 
         while row is not None:
+            imparte = Imparte()
             imparte.curso_i=row[0]
             imparte.letra_i=row[1]
             imparte.idAsignatura=row[2]
@@ -521,9 +527,9 @@ class GestorCursa:
         row = cursor.fetchone()
 
         lista = []
-        cursa = Cursa()
 
         while row is not None:
+            cursa = Cursa()
             cursa.curso_c=row[0]
             cursa.letra_c=row[1]
             cursa.idAsignatura=row[2]
