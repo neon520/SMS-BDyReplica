@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import MySQLdb
-"""
+
 import sys  
 
 reload(sys)  
-sys.setdefaultencoding('utf8')
-"""
+sys.setdefaultencoding('ISO-8859-1')
+
 class Alumno:
 
     def __init__(self):
@@ -172,7 +172,7 @@ class GestorAsignatura:
 
         while row is not None:
             asignatura.id=row[0]
-            asignatura.nombre=row[1]
+            asignatura.nombre=row[1]#str(row[1]).decode('ISO-8859-1')
             lista.append(asignatura)
             #print row[0], row[1]
             row = cursor.fetchone()
