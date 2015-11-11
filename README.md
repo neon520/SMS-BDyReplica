@@ -1,6 +1,6 @@
 # Subproyecto de SMS: StudentsManagementSystem
 
-![travis](https://travis-ci.org/neon520/SMS-BDyReplica.svg?branch=master)
+[![Build Status](https://travis-ci.org/neon520/SMS-BDyReplica.svg?branch=master)](https://travis-ci.org/neon520/SMS-BDyReplica)
 
 ## Introducción
 
