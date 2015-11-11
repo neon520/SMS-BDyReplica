@@ -25,7 +25,7 @@ En mi subproyecto me encargaré de desarrollar el sistema de base de datos y de 
 Estas bases de datos estarán desarrolladas en **Mongo DB** y serán desplegadas en diferentes nubes. En concreto, la base de datos principal será desplegada en **Azure**, mientras que la réplica será desplegada en **Bluemix**. Para los despliegues utilizaré **Ansible**.
 
 
-## Segunda práctica
+## Inicio y testeo
 
 He realizado esta práctica en python ya que el proyecto original se está realizando en python con MySQL y webbapp2.
 
@@ -33,6 +33,18 @@ Los pasos que he realizado son similares a los que he ido haciendo en los ejerci
 
 Después he realizado los test utilizando la librería de testeo sure y ejecutándolo con nosetests (paquete "nose" de python). Una vez hecho esto he creado mi archivo .travis.yml donde configuro la conexión con travis-ci y le digo como instalar mis dependencias y como ejecutar los tests.
 
+Poseo 2 herramientas principales de construcción debido a que, por motivos por ahora desconocidos, si utilizo un setup.py, no se me instala nosetests y no consigue ejecutar los test, así que por eso, mientras se soluciona tengo un makefile y un requirements.txt
+
 Aquí dejo enlace al manual de instrucciones del makefile:
 
 [Instrucciones](https://github.com/neon520/SMS-BDyReplica/blob/master/instrucciones.md)
+
+## Despliegue en un PaaS
+
+He realizado el despliegue en Heroku ya que permite configurar el despliegue mediante un archivo, por lo que una vez creado y preparado Heroku lo interpreta. Este archivo es el Procfile.
+
+Me he encontrado además con varios problemas a la hora del despliegue, ya que para poder realizar este he tenido que utilizar la herramienta Gunicorn.
+
+Con Gunicorn, me he encontrado con las siguientes tesituras:
+- No puedo pasarle el archivo \_\_main\_\_ por las \_\_ y necesito que se llame así por el setup.py. Como solución he creado un archivo index.py con el mismo contenido que el ya citado.
+- No puedo llamar a la aplicación dentro de main() ya que esta necesita estar en la raíz. Como solución he modificado el index.py para que funcione.
