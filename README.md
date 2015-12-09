@@ -51,3 +51,23 @@ Me he encontrado además con varios problemas a la hora del despliegue, ya que p
 Con Gunicorn, me he encontrado con las siguientes tesituras:
 - No puedo pasarle el archivo \_\_main\_\_ por las \_\_ y necesito que se llame así por el setup.py. Como solución he creado un archivo index.py con el mismo contenido que el ya citado.
 - No puedo llamar a la aplicación dentro de main() ya que esta necesita estar en la raíz. Como solución he modificado el index.py para que funcione.
+
+## Implementación de docker
+
+Añadimos implementación con docker, para utilizarla debemos instalar docker, después ejecutar:
+	docker build -t smsbdtradicional .
+Entonces crearemos el contenedor.
+
+Una vez creado el contenedor lo subiremos a [Dockerhub](https://hub.docker.com/). En mi caso, mi aplicación queda alojada [aquí](https://hub.docker.com/r/neon520/sms-bdyreplica/).
+
+Para subirla primero debemos asignarle un tag (que será el ID de la imagen) de esta forma
+	docker tag ID_IMAGEN LUGAR_EN_DOCKERHUB
+ejemplo:
+	docker tag 123124523513 neon520/sms-bdyreplica
+Después de esto hacemos:
+	docker push neon520/sms-bdyreplica
+Una vez  para usarla solo debemos ejecutar:
+	docker pull neon520/sms-bdyreplica
+
+
+
