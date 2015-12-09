@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+
+
+                     <div class="uk-h1">
+                       Asignaturas registradas
+                     </div>
+
+
+                     <ul class="uk-list uk-list-striped">
+                       {% for asignatura in asignaturas %}
+                         <li> {{ asignatura.nombre=unicode(my_string_variable, "utf8") }} {{ asignatura.id=unicode(my_string_variable, "utf8") }} </li>
+                       {% endfor %}
+                    </ul>
+
+{% endblock %}
+

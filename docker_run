@@ -1,0 +1,20 @@
+#!/bin/bash
+
+dpkg-divert --local --rename --add /sbin/initctl
+ln -nfs /bin/true /sbin/initctl
+
+apt-get update
+export DEBIAN_FRONTEND=noninteractive
+apt-get -q -y install mysql-server
+sudo /etc/init.d/mysql restart
+#mysqladmin -u root password ""
+
+
+
+
+apt-get install -y python-pip
+apt-get install -y python-software-properties #Necesario para que funciones add-adpt-repository
+apt-get install build-essential
+sudo apt-get install python-dev			#Necesario para la biblioteca de mysql
+sudo apt-get install python-MySQLdb		#Necesario para la biblioteca de mysql
+#make install
