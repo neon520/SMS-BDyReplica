@@ -7,14 +7,14 @@
 
 ## Introducción
 
-Este proyecto se ha elegido por petición por parte de algunos profesores de un sistema capaz de dar apoyo en las labores del profesorado en la etapa de enseñanza primaria, secundaria y bachillerato. Brindará soporte y agilizará las tareas de los docentes en el día a día en las aulas (pudiendose implementar gestiones de partes de incidencias de comportamiento, asistencia a clase, calificaciones, comunicación con los padres e interna entre personal del centro, etc.). 
+Este proyecto se ha elegido por petición por parte de algunos profesores de un sistema capaz de dar apoyo en las labores del profesorado en la etapa de enseñanza primaria, secundaria y bachillerato. Brindará soporte y agilizará las tareas de los docentes en el día a día en las aulas (pudiendose implementar gestiones de partes de incidencias de comportamiento, asistencia a clase, calificaciones, comunicación con los padres e interna entre personal del centro, etc.).
 
 Además, dada la índole del proyecto, tenemos intención de presentarlo al Certamen de Software Libre.
 
 ## Estructura del proyecto SMS
 
 Será un proyecto que se divide en **3 partes**:
-- **La aplicación**: 
+- **La aplicación**:
 De esta se encargará @juanAFernandez, que la presentará en su TFG
 - **Las máquinas virtuales y el balanceador**:
 De este apartado se encargará @JA-Gonz y será un subproyecto
@@ -32,7 +32,7 @@ Estas bases de datos estarán desarrolladas en **Mongo DB** y serán desplegadas
 
 He realizado esta práctica en python ya que el proyecto original se está realizando en python con MySQL y webbapp2.
 
-Los pasos que he realizado son similares a los que he ido haciendo en los ejercicios, ya que mi aplicación tiene similaridad con el ejercicio 2 ya entregado. En primer paso he realizado la aplicación con la estructura MVC. 
+Los pasos que he realizado son similares a los que he ido haciendo en los ejercicios, ya que mi aplicación tiene similaridad con el ejercicio 2 ya entregado. En primer paso he realizado la aplicación con la estructura MVC.
 
 Después he realizado los test utilizando la librería de testeo sure y ejecutándolo con nosetests (paquete "nose" de python). Una vez hecho esto he creado mi archivo .travis.yml donde configuro la conexión con travis-ci y le digo como instalar mis dependencias y como ejecutar los tests.
 
@@ -70,4 +70,7 @@ Una vez  para usarla solo debemos ejecutar:
 	docker pull neon520/sms-bdyreplica
 
 
+## Prueba en Azure
+Una vez tenemos nuestra imagen podemos probarla en Azure, aunque está aún en desarrollo hemos visto que Azure presenta problemas al conectar los puertos de Docker en su salida. De todas formas podemos observar que la conexión al servidor se hace:
 
+[Azure](smsbdtradicional-844781u2.cloudapp.net)
