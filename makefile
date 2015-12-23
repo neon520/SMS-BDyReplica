@@ -1,5 +1,5 @@
 install:
-	sudo apt-get update && mysql -u "$USUARIO" -p"$CONTRASENA" < SMS_BD/DBCreator.sql && pip install -r requirements_sql.txt
+	./docker_run && mysql -u "$USUARIO" -p"$CONTRASENA" < SMS_BD/DBCreator.sql && pip install -r requirements_sql.txt
 
 install_sin_local:
 	sudo apt-get update && pip install -r requirements.txt

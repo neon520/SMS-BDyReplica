@@ -12,16 +12,19 @@ def get_app():
 
 #Instalacion necesaria para host virgen
 def install():
-	run('cd SMS_BD/ && make install')
+	run('cd SMS-BDyReplica && ./docker_run && make install')
+
+def remove():
+    run('sudo rm -r SMS-BDyReplica')
 
 
 #Ejecucion de test
 def test_app():
-	run('cd SMS_BD/ && make test')
+	run('cd SMS-BDyReplica && make test')
 
 #Ejecucion de la aplicacion
 def run_app():
-	run('cd SMS_BD/ && python __main__.py')
+	run('cd SMS-BDyReplica/SMS_BD && python __main__.py')
 
 #Peticion
 def peticion():
