@@ -12,7 +12,7 @@ def get_app():
 
 #Instalacion necesaria para host virgen
 def install():
-	run('cd SMS-BDyReplica && ./docker_run && make install')
+	run('cd SMS-BDyReplica && make install')
 
 def remove():
     run('sudo rm -r SMS-BDyReplica')
