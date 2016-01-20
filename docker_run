@@ -6,7 +6,7 @@ sudo apt-get install -y debconf-utils
 # echo "mysql-server mysql-server/root_password password $CONTRASENA" | debconf-set-selections
 # echo "mysql-server mysql-server/root_password_again password $CONTRASENA" | debconf-set-selections
 
- mysql_pass=$CONTRASENA
+# mysql_pass=$CONTRASENA
 
  debconf-set-selections <<< "mysql-server mysql-server/root_password password $CONTRASENA"
  debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $CONTRASENA"
