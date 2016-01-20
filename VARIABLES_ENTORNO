@@ -1,2 +1,3 @@
 #!/bin/bash
-export USUARIO="root" CONTRASENA="toor"
+export USUARIO="root" 
+export CONTRASENA="toor"
