@@ -4,6 +4,7 @@ python:
 before_install:
   - sudo apt-get -qq update
   - . ./VARIABLES_ENTORNO
+install:
   - sudo make travis
 #Script
 script: make test
