@@ -182,7 +182,7 @@ class GestorAsignatura:
             asignatura.id=row[0]
             asignatura.nombre=row[1]        #str(row[1]).decode('ISO-8859-1')
             lista.append(asignatura)
-        os.environ["CONTRASENA"]"
+        os.environ["CONTRASENA"]
         cursor.close()
         db.close()
 
