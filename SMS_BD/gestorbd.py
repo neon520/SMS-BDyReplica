@@ -124,7 +124,7 @@ class GestorAlumno:
 
         return lista
 
-'''
+"""
     @classmethod
     def borrarAlumno(self, dnient):
         db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb"); #La conexión está clara.
@@ -134,7 +134,7 @@ class GestorAlumno:
         db.commit()
         cursor.close()
         db.close()
-'''
+"""
 
 class GestorAsignatura:
 
@@ -176,7 +176,7 @@ class GestorAsignatura:
             lista.append(asignatura)
             #print row[0], row[1]
             row = cursor.fetchone()
-        os.environ["CONTRASENA"]"
+        os.environ["CONTRASENA"]
         for row in cursor:
             asignatura = Asignatura()
             asignatura.id=row[0]
