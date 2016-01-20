@@ -8,7 +8,7 @@ install_sin_local:
 	sudo apt-get update && pip install -r requirements.txt
 
 travis:
-	mysql -u "root" -p "" < SMS_BD/DBCreator.sql && pip install -r requirements_sql.txt
+	. ./VARIABLES_ENTORNO && mysql -u "root" -p "" < SMS_BD/DBCreator.sql && pip install -r requirements_sql.txt
 
 test:
 	cd SMS_BD && nosetests test_sure.py
