@@ -5,6 +5,6 @@ before_install:
   - sudo apt-get -qq update
   - . ./VARIABLES_ENTORNO
 install:
-  - sudo make travis
+  - make travis
 #Script
 script: pip freeze && make test
