@@ -14,6 +14,6 @@ sudo apt-get install -y debconf-utils
 
  apt-get install -y python-pip
  apt-get install -y python-software-properties #Necesario para que funciones add-adpt-repository
- apt-get install build-essential
- apt-get install python-dev			#Necesario para la biblioteca de mysql
- apt-get install python-MySQLdb		#Necesario para la biblioteca de mysql
+ apt-get install -y build-essential
+ apt-get install -y python-dev			#Necesario para la biblioteca de mysql
+ apt-get install -y python-MySQLdb		#Necesario para la biblioteca de mysql
