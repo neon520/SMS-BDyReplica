@@ -1,0 +1,30 @@
+---
+- hosts: default
+  user: neon520
+  sudo: yes
+
+  tasks:
+    ##
+    # Instalación de paquetes necesarios.
+    ##
+    - name: Update
+      apt: update_cache=yes
+
+    - name: Install make
+      apt: name=git state=present
+
+    - name: Install build-essencials
+      apt: name=build-essential state=present
+
+    - name: Install git
+      apt: name=git state=present
+
+    - name: Borrar (si estamos actualizando)
+      shell: rm -rf SMS-BDyReplica
+
+    - name: Clone SMS_BD
+      git: repo=https://github.com/neon520/SMS-BDyReplica.git dest=SMS-BDyReplica clone=yes force=yes
+
+    - name: Install
+      shell: cd SMS-BDyReplica/ && make install
+
