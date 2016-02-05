@@ -1,8 +1,11 @@
 #!/bin/bash
  export DEBIAN_FRONTEND="noninteractive"
 
-sudo dpkg --configure -a
-apt-get -y -f install
+ apt-get install -y python-pip
+ apt-get install -y python-software-properties #Necesario para que funciones add-adpt-repository
+ apt-get install -y build-essential
+ apt-get install -y python-dev			#Necesario para la biblioteca de mysql
+ apt-get install -y python-MySQLdb		#Necesario para la biblioteca de mysql
 
 sudo apt-get install -y debconf-utils
 
@@ -14,9 +17,3 @@ sudo apt-get install -y debconf-utils
  debconf-set-selections <<< "mysql-server mysql-server/root_password password $CONTRASENA"
  debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $CONTRASENA"
  apt-get -y install mysql-server
-
- apt-get install -y python-pip
- apt-get install -y python-software-properties #Necesario para que funciones add-adpt-repository
- apt-get install -y build-essential
- apt-get install -y python-dev			#Necesario para la biblioteca de mysql
- apt-get install -y python-MySQLdb		#Necesario para la biblioteca de mysql
