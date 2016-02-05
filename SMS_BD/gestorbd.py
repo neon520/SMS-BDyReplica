@@ -84,7 +84,7 @@ class GestorAlumno:
     @classmethod
     def nuevoAlumno(self, dni, nombre):
         #db = MySQLdb.connect(host="us-cdbr-azure-central-a.cloudapp.net", user="bfeae6941ba94f", passwd="600dee2e", db="as_d754cdef0225140")
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel= "Select count(*) from Alumno where (dni ='"+str(dni)+"');"
         query="INSERT INTO Alumno values("+"'"+str(dni)+"', "+"'"+nombre+"');"
@@ -103,7 +103,7 @@ class GestorAlumno:
 
     @classmethod
     def getAlumnos(self):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect(user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
         cursor = db.cursor()
         query="select * from Alumno";
         cursor.execute(query);
@@ -127,7 +127,7 @@ class GestorAlumno:
 '''
     @classmethod
     def borrarAlumno(self, dnient):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb"); #La conexión está clara.
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb"); #La conexión está clara.
         query="DELETE FROM Alumno WHERE dni="+dnient+";"
         cursor = db.cursor()
         cursor.execute(query);
@@ -140,7 +140,7 @@ class GestorAsignatura:
 
     @classmethod
     def nuevaAsignatura(self, id, nombre):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel= "Select count(*) from Asignatura where (id ='"+str(id)+"');"
         query="INSERT INTO Asignatura values("+"'"+str(id)+"', "+"'"+nombre+"');"
@@ -159,7 +159,7 @@ class GestorAsignatura:
 
     @classmethod
     def getAsignaturas(self):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         cursor = db.cursor()
         query="select * from Asignatura";
@@ -191,7 +191,7 @@ class GestorAsignatura:
 '''
     @classmethod
     def borrarAsignatura(self, id):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb"); #La conexión está clara.
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb"); #La conexión está clara.
         query="DELETE FROM Asignatura WHERE id="+id+";"
         cursor = db.cursor()
         cursor.execute(query);
@@ -204,7 +204,7 @@ class GestorProfesor:
 
     @classmethod
     def nuevoProfesor(self, dni, nombre, apellidos, municipio, provincia, domicilio, email, telefono):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel= "Select count(*) from Profesor where (dni ='"+str(dni)+"');"
         query="INSERT INTO Profesor values("+"'"+str(dni)+"', "+"'"+nombre+"', "+"'"+apellidos+"', "+"'"+municipio+"', "+"'"+provincia+"', "+"'"+domicilio+"', "+"'"+email+"', "+"'"+str(telefono)+"');"
@@ -223,7 +223,7 @@ class GestorProfesor:
 
     @classmethod
     def getProfesores(self):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         cursor = db.cursor()
         query="select * from Profesor";
@@ -254,7 +254,7 @@ class GestorProfesor:
 '''
     @classmethod
     def borrarProfesor(self, id):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
         query="DELETE FROM Profesor WHERE dni="+dni+";"
         cursor = db.cursor()
         cursor.execute(query);
@@ -267,7 +267,7 @@ class GestorGrupo:
 
     @classmethod
     def nuevoGrupo(self, id, nombre):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel= "Select count(*) from Grupo where (id ='"+str(curso)+"AND letra ='"+letra+"');"
         query="INSERT INTO Grupo values("+"'"+str(curso)+"', "+"'"+letra+"');"
@@ -286,7 +286,7 @@ class GestorGrupo:
 
     @classmethod
     def getGrupos(self):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         cursor = db.cursor()
         query="select * from Grupo";
@@ -311,7 +311,7 @@ class GestorGrupo:
 
     @classmethod
     def borrarGrupo(self, curso, letra):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
         query="DELETE FROM Asignatura WHERE curso="+curso+"AND letra="+letra+";"
         cursor = db.cursor()
         cursor.execute(query);
@@ -324,7 +324,7 @@ class GestorPertenece:
 
     @classmethod
     def nuevaPertenencia(self, curso, letra, idAsignatura):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel_c= "SELECT count(*) from Pertenece where curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura_p='"+str(idAsignatura)+"';"
         sel_e= "SELECT count(*) from Asignatura where (id ="+"'"+str(idAsignatura)+"');"
@@ -347,7 +347,7 @@ class GestorPertenece:
 
     @classmethod
     def borrarPertenencia(self, curso, letra, dni):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"';"
         query="DELETE FROM Cursa where where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"';"
@@ -369,7 +369,7 @@ class GestorPertenece:
 
     @classmethod
     def getPertenencias(self):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb");
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb");
 
         cursor = db.cursor()
         query="select * from Pertenece";
@@ -396,7 +396,7 @@ class GestorImparte:
 
     @classmethod
     def nuevaImparticion(self, curso, letra, idAsignatura, dniProfesor):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
         gs=GestorUsuario()
         sel_c= "SELECT count(*) from Imparte where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura_i='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
         sel_e= "SELECT count(*) from Pertenece where (curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura_p ="+"'"+str(idAsignatura)+"');"
@@ -421,7 +421,7 @@ class GestorImparte:
 
     @classmethod
     def borrarImparticion(self, curso, letra, idAsignatura, dniProfesor):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel_c= "SELECT count(*) from Imparte where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura_i='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
         query="DELETE FROM Imparte where where curso_i ="+"'"+str(curso)+"' AND letra_i='"+letra+"' and  idAsignatura_i='"+str(idAsignatura)+"', dniProfesor='"+str(dniProfesor)+"';"
@@ -443,7 +443,7 @@ class GestorImparte:
 
     @classmethod
     def getImparticiones(self):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb");
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb");
 
         cursor = db.cursor()
         query="select * from Imparte";
@@ -472,7 +472,7 @@ class GestorCursa:
 
     @classmethod
     def nuevoCurso(self, curso, letra, idAsignatura, dniAlumno):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
         gs=GestorUsuario()
         sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
         sel_e= "SELECT count(*) from Pertenece where (curso_p ="+"'"+str(curso)+"' AND letra_p='"+letra+"' AND idAsignatura_p ="+"'"+str(idAsignatura)+"');"
@@ -497,7 +497,7 @@ class GestorCursa:
 
     @classmethod
     def borrarCurso(self, curso, letra, idAsignatura, dniAlumno):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb")
 
         sel_c= "SELECT count(*) from Cursa where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
         query="DELETE FROM Cursa where where curso_c ="+"'"+str(curso)+"' AND letra_c='"+letra+"' and  idAsignatura_c='"+str(idAsignatura)+"', dniAlumno='"+str(dniAlumno)+"';"
@@ -519,7 +519,7 @@ class GestorCursa:
 
     @classmethod
     def getCursos(self):
-        db = MySQLdb.connect(host="localhost", user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb");
+        db = MySQLdb.connect( user=os.environ["USUARIO"], passwd=os.environ["CONTRASENA"], db="mdb");
 
         cursor = db.cursor()
         query="select * from Cursa";
