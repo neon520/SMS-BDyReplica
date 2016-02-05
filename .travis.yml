@@ -1,13 +1,13 @@
 language: python
 python:
  - "2.7"
-env:
-  global:
-    - USUARIO=root
-    - CONTRASENA=''
+#env:
+#  global:
+#    - USUARIO=root
+#    - CONTRASENA=''
 before_install:
   - sudo apt-get -qq update
-#  - . ./VARIABLES_ENTORNO
+  - . ./VARIABLES_ENTORNO
 install:
   - make travis
 #Script
