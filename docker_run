@@ -2,7 +2,7 @@
  export DEBIAN_FRONTEND="noninteractive"
 
 sudo dpkg --configure -a
-apt-get -f install
+apt-get -y -f install
 
 sudo apt-get install -y debconf-utils
 
