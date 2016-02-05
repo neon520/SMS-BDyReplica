@@ -2,7 +2,7 @@ USUARIO=$(shell echo $$USUARIO)
 CONTRASENA=$(shell echo $$CONTRASENA)
 
 entorno:
-	. ./VARIABLES_ENTORNO
+	. . ./VARIABLES_ENTORNO
 
 install:
 	sudo ./docker_run && mysql -u $(USUARIO) --password=$(CONTRASENA) < SMS_BD/DBCreator.sql && pip install -r requirements_sql.txt
