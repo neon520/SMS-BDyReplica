@@ -24,7 +24,7 @@ def test_app():
 
 #Ejecucion de la aplicacion
 def run_app():
-	run('cd SMS-BDyReplica/SMS_BD && python __main__.py')
+	run('cd SMS-BDyReplica/SMS_BD && python __main__.py &')
 
 #Peticion
 def peticion():

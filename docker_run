@@ -19,5 +19,4 @@
  debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $var"
  apt-get -y install mysql-server
 
-echo $var
- sudo mysqladmin -u root password $var
+ sudo mysqladmin -u root -p$var password $var
