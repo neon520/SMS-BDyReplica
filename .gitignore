@@ -3,3 +3,4 @@
 *.cer
 .vagrant/
 VARIABLES_ENTORNO
+aux
