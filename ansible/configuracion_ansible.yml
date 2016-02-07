@@ -3,10 +3,16 @@
   user:  "{{ lookup('env','VA_USUARIO_SSH') }}"
   sudo: yes
 
+#  vars:
+#    usuario: "{{ lookup('env','VA_USUARIO_SSH') }}"
+
   tasks:
     ##
     # Instalación de paquetes necesarios.
     ##
+  #  -name: Variables de entorno
+  #   shell: /home/{{ usuario }}/VARIABLES_ENTORNO
+
     - name: Update
       apt: update_cache=yes
 

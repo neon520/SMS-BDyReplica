@@ -11,17 +11,25 @@
 #
 ############################################################
 
-head /home/$USER/.bashrc > aux
-cat aux > /home/$USER/.bashrc     #con esto evitamos replicar variables de entorno
-echo 'export USUARIO=""' >> /home/$USER/.bashrc
-echo 'export CONTRASENA=""' >> /home/$USER/.bashrc
-echo 'export VA_USUARIO_AZURE=""' >> /home/$USER/.bashrc
-echo 'export VA_PASS_AZURE=""' >> /home/$USER/.bashrc
-echo 'export VA_USUARIO_SSH=""' >> /home/$USER/.bashrc
-echo 'export VA_PASS_SSH=""' >> /home/$USER/.bashrc
-echo 'export VA_CER_PEM=""' >> /home/$USER/.bashrc
-echo 'export VA_VM_NAME=""' >> /home/$USER/.bashrc
-echo 'export VA_SUB_AZURE=""' >> /home/$USER/.bashrc
+
+if [ "$1" == "" ]; then
+	var=$USER
+else
+	var=$1
+fi
+
+
+head /home/$var/.bashrc > aux
+cat aux > /home/$var/.bashrc     #con esto evitamos replicar variables de entorno
+echo 'export USUARIO=""' >> /home/$var/.bashrc
+echo 'export CONTRASENA=""' >> /home/$var/.bashrc
+echo 'export VA_USUARIO_AZURE=""' >> /home/$var/.bashrc
+echo 'export VA_PASS_AZURE=""' >> /home/$var/.bashrc
+echo 'export VA_USUARIO_SSH=""' >> /home/$var/.bashrc
+echo 'export VA_PASS_SSH=""' >> /home/$var/.bashrc
+echo 'export VA_CER_PEM=""' >> /home/$var/.bashrc
+echo 'export VA_VM_NAME=""' >> /home/$var/.bashrc
+echo 'export VA_SUB_AZURE=""' >> /home/$var/.bashrc
 
 
 bash
