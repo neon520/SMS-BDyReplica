@@ -11,25 +11,29 @@
 #
 ############################################################
 
-
 if [ "$1" == "" ]; then
 	var=$USER
 else
 	var=$1
 fi
 
+if [ "$var" == "root" ]; then
+	direccion=/root/.bashrc
+else
+	direccion=/home/$var/.bashrc
+fi
 
-head /home/$var/.bashrc > aux
-cat aux > /home/$var/.bashrc     #con esto evitamos replicar variables de entorno
-echo 'export USUARIO=""' >> /home/$var/.bashrc
-echo 'export CONTRASENA=""' >> /home/$var/.bashrc
-echo 'export VA_USUARIO_AZURE=""' >> /home/$var/.bashrc
-echo 'export VA_PASS_AZURE=""' >> /home/$var/.bashrc
-echo 'export VA_USUARIO_SSH=""' >> /home/$var/.bashrc
-echo 'export VA_PASS_SSH=""' >> /home/$var/.bashrc
-echo 'export VA_CER_PEM=""' >> /home/$var/.bashrc
-echo 'export VA_VM_NAME=""' >> /home/$var/.bashrc
-echo 'export VA_SUB_AZURE=""' >> /home/$var/.bashrc
+head $direccion > aux
+cat aux > $direccion     #con esto evitamos replicar variables de entorno
+echo 'export USUARIO=""' >> $direccion
+echo 'export CONTRASENA=""' >> $direccion
+echo 'export VA_USUARIO_AZURE=""' >> $direccion
+echo 'export VA_PASS_AZURE=""' >> $direccion
+echo 'export VA_USUARIO_SSH=""' >> $direccion
+echo 'export VA_PASS_SSH=""' >> $direccion
+echo 'export VA_CER_PEM=""' >> $direccion
+echo 'export VA_VM_NAME=""' >> $direccion
+echo 'export VA_SUB_AZURE=""' >> $direccion
 
 
 bash
