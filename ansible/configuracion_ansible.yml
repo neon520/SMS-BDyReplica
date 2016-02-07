@@ -31,4 +31,4 @@
       git: repo=https://github.com/neon520/SMS-BDyReplica.git dest=SMS-BDyReplica clone=yes force=yes
 
     - name: Install
-      shell: cd SMS-BDyReplica/ && make install
+      shell: cd SMS-BDyReplica/ && make install US="{{ lookup('env','USUARIO') }}" PASS="{{ lookup('env','CONTRASENA') }}"
