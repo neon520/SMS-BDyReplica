@@ -2,7 +2,7 @@
 - hosts: default
   user:  "{{ lookup('env','VA_USUARIO_SSH') }}"
   become: yes
-  become_method: sudo
+  #become_method: sudo
   vars:
     usuario: "{{ lookup('env','VA_USUARIO_SSH') }}"
 
@@ -31,4 +31,4 @@
       git: repo=https://github.com/neon520/SMS-BDyReplica.git dest=SMS-BDyReplica clone=yes force=yes
 
     - name: Install
-      shell: cd SMS-BDyReplica/ && sudo make install
+      shell: cd SMS-BDyReplica/ && make install
