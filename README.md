@@ -49,8 +49,10 @@ He realizado el despliegue en Heroku ya que permite configurar el despliegue med
 Me he encontrado además con varios problemas a la hora del despliegue, ya que para poder realizar este he tenido que utilizar la herramienta Gunicorn.
 
 Con Gunicorn, me he encontrado con las siguientes tesituras:
-- No puedo pasarle el archivo \_\_main\_\_ por las \_\_ y necesito que se llame así por el setup.py. Como solución he creado un archivo index.py con el mismo contenido que el ya citado.
-- No puedo llamar a la aplicación dentro de main() ya que esta necesita estar en la raíz. Como solución he modificado el index.py para que funcione.
+- No puedo pasarle el archivo \_\_main\_\_ por las \_\_ y necesito que se llame así por el setup.py.
+Como solución he creado un archivo index.py con el mismo contenido que el ya citado.
+- No puedo llamar a la aplicación dentro de main() ya que esta necesita estar en la raíz.
+Como solución he modificado el index.py para que funcione.
 
 ## Implementación de docker
 
@@ -74,3 +76,54 @@ Una vez  para usarla solo debemos ejecutar:
 Una vez tenemos nuestra imagen podemos probarla en Azure, aunque está aún en desarrollo hemos visto que Azure presenta problemas al conectar los puertos de Docker en su salida. De todas formas podemos observar que la conexión al servidor se hace:
 
 [Azure](smsbdtradicional-844781u2.cloudapp.net)
+
+(Es posible que, debido a problemas financieros, esta máquina se encuentre apagada)
+
+##Vagrant + Ansible
+Añadimos módulos de vagrant y ansible para desplegar nuestras máquinas en Azure (en este caso, realmente es reutilizable a una VM local).
+
+Para ello he desarrollado los archivos [Vagrantfile](https://github.com/neon520/SMS-BDyReplica/blob/master/Vagrantfile) y [ansible/configuracion_ansible.yml](https://github.com/neon520/SMS-BDyReplica/blob/master/ansible/configuracion_ansible.yml) que se encargarán de este depliegue.
+
+Por una parte Vagrant se encargará de la creación de la máquina, gestionando los usuarios y puertos pertinentes.
+
+Por otro lado, Ansible se va a encargar de preparar la máquina para ejecutar la aplicación, para ello instalará las dependencias necesarias para que este funcione.
+
+Estos 2 programas no se ejecutan por separado, es Vagrant el que, tras crear la máquina, le dice a Ansible que proceda a hacer su trabajo.
+
+Para ejecutar todo debemos instalar Vagrant, Ansible y, en este caso, el plugin de Azure que tiene Vagrant.
+
+Este plugin se instala haciendo:
+
+	vagrant plugin install vagrant-azure
+
+Tras instalar todo, vamos a terminar de prepararlo todo para desplegar en Azure: vamos a generar los certificados de servidor (son personales y por eso no están en el repositorio).
+
+Para realizar esta acción ejecutaremos las siguientes ordenes en el terminal:
+
+	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout azure.pem -out azure.pem
+	openssl x509 -inform pem -in azure.pem -outform der -out azure.cer
+	chmod 600 azure.pem
+
+Una vez hecho esto subimos nuestro archivo azure.cer a nuestro servidor (en el caso de Azure se hace en el portal antiguo en la sección de configuración).
+
+Tras hacer esto, solo tendremos que ejecutar nuestro archivo de Variables de Entorno ([aquí](https://github.com/neon520/SMS-BDyReplica/blob/master/VARIABLES_ENTORNO) dejo la plantilla) simplemente haciendo:
+
+	./VARIABLES_ENTORNO
+
+Tras esto ya está todo listo, ejecutaremos la orden:
+
+	vagrant up --provider=azure
+
+en caso de querer desplegar en azure, en caso de ser en VM local sin la etiqueta --provider.
+
+**Nota**: instalar desde gem o buscando el .deb, ya que la versión de los repositorios de Ubuntu traen un bug. En los de archlinux no da error.
+
+##Fabric
+
+Fabric se encarga de conectarse por nosotros a la máquina, creada previamente, por ssh y hacer las cosas que haríamos al conectarnos. Así evitamos por ejemplo el error humano, y automatizamos mejor la gestión, ya que con una orden realizaría muchas tareas.
+
+Para poder ver la configuración
+
+
+
+ 	fab -p tucontraseña -H  tuusuario@IPdelServidor OrdenAEjecutarPorFabric

@@ -7,7 +7,6 @@ env:
     - CONTRASENA=''
 before_install:
   - sudo apt-get -qq update
-#  - . ./VARIABLES_ENTORNO
 install:
   - make travis
 #Script
