@@ -51,6 +51,8 @@ Vagrant.configure(2) do |config|
 
 
 
+  config.vm.provision "file", source: "./VARIABLES_ENTORNO", destination: "~/"
+  config.vm.provision "shell", inline: "~/VARIABLES_ENTORNO"
 	config.vm.provision "ansible" do |ansible|
     #		 ansible.groups = {
     #      			'all' => ['default']

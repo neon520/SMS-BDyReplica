@@ -1,0 +1,27 @@
+#!/bin/bash
+############################################################
+#
+# Plantilla para generación de Variables de Entorno
+# Genera las variables de entorno mostradas abajo
+#
+# Para cambiar alguna, modificarla y volver a ejecutar
+# el script
+#
+# Author: @neon520
+#
+############################################################
+
+head /home/$USER/.bashrc > aux
+cat aux > /home/$USER/.bashrc     #con esto evitamos replicar variables de entorno
+echo 'export USUARIO=""' >> /home/$USER/.bashrc
+echo 'export CONTRASENA=""' >> /home/$USER/.bashrc
+echo 'export VA_USUARIO_AZURE=""' >> /home/$USER/.bashrc
+echo 'export VA_PASS_AZURE=""' >> /home/$USER/.bashrc
+echo 'export VA_USUARIO_SSH=""' >> /home/$USER/.bashrc
+echo 'export VA_PASS_SSH=""' >> /home/$USER/.bashrc
+echo 'export VA_CER_PEM=""' >> /home/$USER/.bashrc
+echo 'export VA_VM_NAME=""' >> /home/$USER/.bashrc
+echo 'export VA_SUB_AZURE=""' >> /home/$USER/.bashrc
+
+
+bash
