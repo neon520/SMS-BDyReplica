@@ -24,12 +24,14 @@ def test_app():
 
 #Ejecucion de la aplicacion
 def run_app():
-	run('cd SMS-BDyReplica/SMS_BD && python __main__.py &')
+    run('cd SMS-BDyReplica/SMS_BD && sudo gunicorn -b 0.0.0.0:80 index:app &')
 
 #Peticion
 def peticion():
-	run('curl http://localhost:80/')
+	run('sudo curl http://0.0.0.0:80')
 
+def kill_app():
+    run('sudo kill -9 $(pidof python)')
 
 
 #Ejecucion remota del docker

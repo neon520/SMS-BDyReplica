@@ -17,6 +17,7 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   	config.vm.box = "azure"
+    config.vm.network "forwarded_port", guest: 80, host: 80
   	config.vm.provider :azure do |azure, override|
         # Mandatory Settings
       		azure.mgmt_certificate = File.expand_path(ENV['VA_CER_PEM'])
@@ -44,6 +45,7 @@ Vagrant.configure(2) do |config|
       		azure.vm_location = "North Europe" # e.g., West US
 
       		azure.ssh_port             = "22"
+          azure.tcp_endpoints = '80:80'
 	end
   config.ssh.username = ENV['VA_USUARIO_SSH']
   config.ssh.password = ENV['VA_PASS_SSH']
