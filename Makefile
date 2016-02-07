@@ -1,6 +1,9 @@
-USUARIO=$(shell echo $USUARIO)
-CONTRASENA=$(shell echo $CONTRASENA)
+USUARIO=$(shell echo $$USUARIO)
+CONTRASENA=$(shell echo $$CONTRASENA)
 
+#Como estaba antes
+#USUARIO=$(shell echo $$USUARIO)
+#CONTRASENA=$(shell echo $$CONTRASENA)
 
 #include VARIABLES_ENTORNO
 
