@@ -1,6 +1,12 @@
 #!/bin/bash
  export DEBIAN_FRONTEND="noninteractive"
 
+ if [ "$1" == "" ]; then
+ 	var=$CONTRASENA
+ else
+ 	var=$1
+ fi
+
  apt-get install -y python-pip
  apt-get install -y python-software-properties #Necesario para que funciones add-adpt-repository
  apt-get install -y build-essential
@@ -9,9 +15,8 @@
 
  sudo apt-get install -y debconf-utils
 
- debconf-set-selections <<< "mysql-server mysql-server/root_password password $CONTRASENA"
- debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $CONTRASENA"
+ debconf-set-selections <<< "mysql-server mysql-server/root_password password $var"
+ debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $var"
  apt-get -y install mysql-server
 
- echo $CONTRASENA
- sudo mysqladmin -u root password $CONTRASENA
+ sudo mysqladmin -u root password $var
