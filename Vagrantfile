@@ -19,10 +19,10 @@ Vagrant.configure(2) do |config|
   	config.vm.box = "azure"
   	config.vm.provider :azure do |azure, override|
         # Mandatory Settings
-      		azure.mgmt_certificate = File.expand_path("azure.pem")
+      		azure.mgmt_certificate = File.expand_path(ENV['VA_CER_PEM'])
       		azure.mgmt_endpoint    = "https://management.core.windows.net"
-      		azure.subscription_id = "098749fe-33fa-4249-9476-1dcfc8221cfe"
-      		azure.vm_name     = "smsbdyreplica"
+      		azure.subscription_id = ENV['VA_SUB_AZURE']
+      		azure.vm_name     = ENV['VA_VM_NAME']
       		#azure.cloud_service_name = ""
       		azure.vm_image    = "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_2-LTS-amd64-server-20150506-en-us-30GB"
       		azure.vm_size     = "Small"
@@ -37,15 +37,15 @@ Vagrant.configure(2) do |config|
         # accessing "localhost:8080" will access port 80 on the guest machine.
         # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-      		azure.vm_user = "neon520" # defaults to 'vagrant' if not provided
-      		azure.vm_password = "12345678!Ab"
+      		azure.vm_user = ENV['VA_USUARIO_AZURE'] # defaults to 'vagrant' if not provided
+      		azure.vm_password = ENV['VA_PASS_AZURE']
 
       		azure.vm_location = "North Europe" # e.g., West US
 
       		azure.ssh_port             = "22"
 	end
-  config.ssh.username = 'neon520'
-  config.ssh.password = '12345678!Ab'
+  config.ssh.username = ENV['VA_USUARIO_SSH']
+  config.ssh.password = ENV['VA_PASS_SSH']
 	config.vm.synced_folder ".", "/vagrant",disabled: true
 
 

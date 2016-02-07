@@ -1,6 +1,6 @@
 ---
 - hosts: default
-  user: neon520
+  user:  "{{ lookup('env','VA_USUARIO_SSH') }}"
   sudo: yes
 
   tasks:

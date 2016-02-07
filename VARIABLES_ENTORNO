@@ -20,5 +20,8 @@ echo 'export VA_PASS_AZURE=""' >> /home/$USER/.bashrc
 echo 'export VA_USUARIO_SSH=""' >> /home/$USER/.bashrc
 echo 'export VA_PASS_SSH=""' >> /home/$USER/.bashrc
 echo 'export VA_CER_PEM=""' >> /home/$USER/.bashrc
+echo 'export VA_VM_NAME=""' >> /home/$USER/.bashrc
+echo 'export VA_SUB_AZURE=""' >> /home/$USER/.bashrc
+
 
 bash
