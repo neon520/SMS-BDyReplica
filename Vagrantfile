@@ -23,10 +23,11 @@ Vagrant.configure(2) do |config|
       		azure.mgmt_endpoint    = "https://management.core.windows.net"
       		azure.subscription_id = ENV['VA_SUB_AZURE']
       		azure.vm_name     = ENV['VA_VM_NAME']
-      		#azure.cloud_service_name = ""
+      		azure.cloud_service_name     = ENV['VA_VM_NAME']
       		azure.vm_image    = "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_2-LTS-amd64-server-20150506-en-us-30GB"
       		azure.vm_size     = "Small"
       		config.vm.box_url = "https://github.com/msopentech/vagrant-azure/raw/master/dummy.box"
+
         # Disable automatic box update checking. If you disable this, then
         # boxes will only be checked for updates when the user runs
         # `vagrant box outdated`. This is not recommended.
