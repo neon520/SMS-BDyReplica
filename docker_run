@@ -12,4 +12,4 @@
  debconf-set-selections <<< "mysql-server mysql-server/root_password password $CONTRASENA"
  debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $CONTRASENA"
  apt-get -y install mysql-server
- #sudo mysqladmin -u root -p$CONTRASENA password $CONTRASENA
+ sudo mysqladmin -u root password $CONTRASENA
