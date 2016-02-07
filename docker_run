@@ -7,9 +7,9 @@
  apt-get install -y python-dev			#Necesario para la biblioteca de mysql
  apt-get install -y python-MySQLdb		#Necesario para la biblioteca de mysql
 
-sudo apt-get install -y debconf-utils
+ sudo apt-get install -y debconf-utils
 
  debconf-set-selections <<< "mysql-server mysql-server/root_password password $CONTRASENA"
  debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $CONTRASENA"
  apt-get -y install mysql-server
- mysqladmin -u root password $CONTRASENA
+ sudo mysqladmin -u root password $CONTRASENA
