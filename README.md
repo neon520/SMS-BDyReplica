@@ -49,10 +49,8 @@ He realizado el despliegue en Heroku ya que permite configurar el despliegue med
 Me he encontrado además con varios problemas a la hora del despliegue, ya que para poder realizar este he tenido que utilizar la herramienta Gunicorn.
 
 Con Gunicorn, me he encontrado con las siguientes tesituras:
-- No puedo pasarle el archivo \_\_main\_\_ por las \_\_ y necesito que se llame así por el setup.py.
-Como solución he creado un archivo index.py con el mismo contenido que el ya citado.
-- No puedo llamar a la aplicación dentro de main() ya que esta necesita estar en la raíz.
-Como solución he modificado el index.py para que funcione.
+- No puedo pasarle el archivo \_\_main\_\_ por las \_\_ y necesito que se llame así por el setup.py. Como solución he creado un archivo index.py con el mismo contenido que el ya citado.
+- No puedo llamar a la aplicación dentro de main() ya que esta necesita estar en la raíz. Como solución he modificado el index.py para que funcione.
 
 ## Implementación de docker
 
