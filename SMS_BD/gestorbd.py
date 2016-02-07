@@ -8,8 +8,8 @@ import sys
 reload(sys)
 sys.setdefaultencoding('ISO-8859-1')
 
-us=os.environ["USUARIO"]
-pa=os.environ["CONTRASENA"]
+us=os.environ.get('USUARIO','root')
+pa=os.environ.get('CONTRASENA','toor')
 
 class Alumno:
 
