@@ -4,6 +4,8 @@
 
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://smsbdtradicional.herokuapp.com/)
 
+[![Azure](http://www.avtex.com/~/media/base/avtex%20public/logos/windows-azure-logo.ashx?la=en)](http://smsbdyreplica.cloudapp.net/)
+
 
 ## Introducción
 
