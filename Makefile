@@ -21,3 +21,8 @@ travis:
 
 test:
 	cd SMS_BD && nosetests test_sure.py
+
+deploy:
+	sudo apt-get install vagrant ansible
+	vagrant plugin install vagrant-azure
+	vagrant up --provider=azure

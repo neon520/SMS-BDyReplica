@@ -106,9 +106,11 @@ Para realizar esta acción ejecutaremos las siguientes ordenes en el terminal:
 
 Una vez hecho esto subimos nuestro archivo azure.cer a nuestro servidor (en el caso de Azure se hace en el portal antiguo en la sección de configuración).
 
-Tras hacer esto, solo tendremos que ejecutar nuestro archivo de Variables de Entorno ([aquí](https://github.com/neon520/SMS-BDyReplica/blob/master/VARIABLES_ENTORNO) dejo la plantilla) simplemente haciendo:
+Tras hacer esto, solo tendremos que ejecutar nuestro archivo de Variables de Entorno ([aquí](https://github.com/neon520/SMS-BDyReplica/blob/master/variables_entorno/VARIABLES_ENTORNO) dejo la plantilla) simplemente haciendo:
 
 	./VARIABLES_ENTORNO
+
+VARIABLES_ENTORNO debe ponerse en la raíz para que funcione, la plantilla está de ejemplo para poder copiarla a la raíz.
 
 Tras esto ya está todo listo, ejecutaremos la orden:
 
