@@ -6,6 +6,10 @@
 
 [![Azure](http://www.avtex.com/~/media/base/avtex%20public/logos/windows-azure-logo.ashx?la=en)](http://smsbdyreplica.cloudapp.net/)
 
+## Uso
+Copiar el archivo [VARIABLES_ENTORNO](https://github.com/neon520/SMS-BDyReplica/blob/master/variables_entorno/VARIABLES_ENTORNO) en la raíz y rellenarlo, ya que el que doy es una plantilla, después de esto hacer
+
+	make deploy
 
 ## Introducción
 
