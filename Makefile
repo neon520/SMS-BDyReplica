@@ -23,7 +23,4 @@ test:
 	cd SMS_BD && nosetests test_sure.py
 
 deploy:
-	./VARIABLES_ENTORNO
-	sudo apt-get install vagrant ansible
-	vagrant plugin install vagrant-azure
-	vagrant up --provider=azure
+	./VARIABLES_ENTORNO && sudo apt-get install vagrant ansible && vagrant plugin install vagrant-azure && vagrant up --provider=azure
