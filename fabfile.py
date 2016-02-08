@@ -6,8 +6,6 @@ def host_info():
 
 #descarga de la aplicacion utilizando git
 def get_app():
-	run('sudo apt-get update')
-	run('sudo apt-get install -y git')
 	run('sudo git clone https://github.com/neon520/SMS-BDyReplica.git')
 
 #Instalacion necesaria para host virgen
